@@ -54,6 +54,7 @@ function App() {
         error: 'Waiting for location...'
     })
     }
+    console.log(apiResult)
   }
 
   //Set weather when location access granted
@@ -98,6 +99,7 @@ function App() {
         error: 'Invalid Location'
       })
     }
+    console.log(apiResult)
   }
 
   return (
