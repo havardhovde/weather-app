@@ -1,0 +1,78 @@
+.weather-card {
+    min-width: 30%;
+    margin: auto;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(199,191,199,0.5);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(199,191,199,0.5);
+    box-shadow: 0px 0px 10px 5px rgba(199,191,199,0.5);
+    margin-top: 2rem;
+}
+
+.city-name {
+    text-align: left;
+    margin-left: 2rem;
+    font-size: 2rem;
+    line-height: 0;
+}
+
+.error {
+    margin-top: 0;
+}
+
+.current-date-and-description {
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.temperature-and-icon{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "temperature weather-icon";
+    place-items: center;
+    grid-gap: 50%;
+}
+
+.temperature {
+    grid-area: temperature;
+    font-size: 3rem;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.weather-icon {
+    grid-area: weather-icon;
+}
+
+@media only screen and (max-width: 600px) {
+    .weather-card {
+        width: 100%;
+    }
+    
+    .temperature {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .weather-card {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .weather-card {
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .weather-card {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .weather-card {
+        width: 30%;
+    }
+} 
