@@ -1,1 +1,1 @@
-Weather app build with react and the OpenWeatherMap API
+Weather app built with react and the OpenWeatherMap API
