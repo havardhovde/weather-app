@@ -54,7 +54,6 @@ function App() {
         error: 'Waiting for location...'
     })
     }
-    console.log(apiResult)
   }
 
   //Set weather when location access granted
@@ -99,13 +98,14 @@ function App() {
         error: 'Invalid Location'
       })
     }
-    console.log(apiResult)
   }
 
   return (
     <div className="App">
       <h3>Weather app</h3>
-      <Search getWeather={getWeatherFromSearch} />
+      <div id='search-component'>
+        <Search getWeather={getWeatherFromSearch} />
+      </div>
       <Weather
         date={weather.date}
         city={weather.city}
