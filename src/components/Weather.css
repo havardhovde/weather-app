@@ -21,6 +21,11 @@
 .current-date-and-description {
     text-align: left;
     margin-left: 2rem;
+    margin-top: 1rem;
+    line-height: 0.5;
+    text-transform: capitalize;   
+    font-size: 1rem;
+    color: gray;
 }
 
 .temperature-and-icon{
@@ -29,18 +34,27 @@
     grid-template-rows: 1fr;
     grid-template-areas: "temperature weather-icon";
     place-items: center;
-    grid-gap: 50%;
+    grid-gap: 35%;
 }
 
 .temperature {
     grid-area: temperature;
-    font-size: 3rem;
+    font-size: 4rem;
     width: 100%;
     margin-left: 2rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
 }
 
 .weather-icon {
     grid-area: weather-icon;
+    transform: scale(1.2);
+    margin-right: 2rem;
+}
+
+.wind-speed {
+    text-align: left;
+    margin-left: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -57,11 +71,19 @@
     .weather-card {
         width: 90%;
     }
+    
+    .temperature {
+        font-size: 3rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .weather-card {
         width: 75%;
+    }
+
+    .temperature {
+        font-size: 3rem;
     }
 }
 
@@ -69,10 +91,28 @@
     .weather-card {
         width: 60%;
     }
+
+    .temperature {
+        font-size: 3rem;
+    }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1500px) {
+    .weather-card {
+        width: 50%;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
     .weather-card {
         width: 30%;
+    }
+
+    .temperature {
+        font-size: 4rem;
     }
 } 

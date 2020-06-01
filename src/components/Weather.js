@@ -1,31 +1,56 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Weather.css'
 import Moment from 'react-moment'
 import { FaWind } from 'react-icons/fa'
 
-const Weather = ({date, city, country, temperature, description, icon, windSpeed, error}) => {
+const Weather = ({date, city, country, temperature, description, icon, windSpeed, windDirection, error}) => {
+    const [windDir, setWindDir] = useState('')
+
+    //Convert wind direction from degrees to text
+    useEffect(() => {
+        let degrees = windDirection
+
+        let directions = ['north', 'northeast', 'east', 'southeast', 'south', 'southwest', 'west', 'northwest']
+
+        degrees = degrees * 8 / 360
+
+        degrees = Math.round(degrees, 0)
+
+        degrees = (degrees + 8) % 8
+
+        setWindDir(directions[degrees])
+      }, [windDirection])
 
     return (
         <main className='weather-card'>
             <div className='weather-content'>
+                {city && country &&
                 <h3 className='city-name'>
-                    {city && country && <p>{city}, {country}</p>}
+                     <p>{city}, {country}</p>
                 </h3>
+                }
+                {date && description &&
                 <div className='current-date-and-description'>
-                    {date && description && <p>{<Moment format='DD/MM/YYYY'>{date*1000}</Moment>}, {description}</p>}
+                     <p>{<Moment format='dddd MMMM Do YYYY, HH:mm'>{date*1000}</Moment>}</p>
+                     <p>{description}</p>
                 </div>
-
+                }
+                {error &&
                 <div className='error'>
-                    {error && <p>{error}</p>}
+                     <p>{error}</p>
                 </div>
-
+                }
+                {temperature && icon &&
                 <div className='temperature-and-icon'>
-                    {temperature && <p className='temperature' style={{ color: temperature > 0 ? 'red' : 'blue' }}>{Math.round(temperature)} °C</p>}
-                    {icon && <img className='weather-icon' src={require(`../icons/${icon}.png`)} alt={description + ' icon'}/>}
+                    <p className='temperature' style={{ color: temperature > 0 ? 'red' : 'blue' }}>{Math.round(temperature)} °C</p>
+                    <img className='weather-icon' src={require(`../icons/${icon}.png`)} alt={description + ' icon'}/>
                 </div>
+                }
+                {windSpeed &&
                 <div className='wind-speed'>
-                    {windSpeed && <p>Wind speed = {Math.round(windSpeed * 3.6)} km/h <FaWind/> </p>}
+                     <p>{Math.round(windSpeed) === 0 ? 'Calm winds' : `Wind speed = ${Math.round(windSpeed)} m/s from the ${windDir}`} <FaWind /> </p>
                 </div>
+                }
             </div>
         </main>
     )

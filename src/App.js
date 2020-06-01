@@ -8,6 +8,7 @@ function App() {
   const [lat, setLat] = useState()
   const [lon, setLon] = useState()
 
+  //Set latitude and longitude from geolocation, if avalible
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -15,7 +16,7 @@ function App() {
         setLon(position.coords.longitude)
       })
     } else {
-      console.log("Not Available");
+      console.log("Location not available");
     }
   }, [])
 
@@ -38,6 +39,7 @@ function App() {
         id: apiResult.weather[0].id,
         temperature: apiResult.main.temp,
         windSpeed: apiResult.wind.speed,
+        windDirection: apiResult.wind.deg,
         error: ''
     })
     } else {
@@ -51,6 +53,7 @@ function App() {
         id: '',
         temperature: '',
         windSpeed: '',
+        windDirection: '',
         error: 'Waiting for location...'
     })
     }
@@ -82,6 +85,7 @@ function App() {
         id: apiResult.weather[0].id,
         temperature: apiResult.main.temp,
         windSpeed: apiResult.wind.speed,
+        windDirection: apiResult.wind.deg,
         error: '',
       })
     } else {
@@ -95,6 +99,7 @@ function App() {
         id: '',
         temperature: '',
         windSpeed: '',
+        windDirection: '',
         error: 'Invalid Location'
       })
     }
@@ -102,7 +107,7 @@ function App() {
 
   return (
     <div className="App">
-      <h3>Weather app</h3>
+      <h3>Current weather</h3>
       <div id='search-component'>
         <Search getWeather={getWeatherFromSearch} />
       </div>
@@ -114,7 +119,8 @@ function App() {
         id={weather.id}
         icon={weather.icon}
         temperature={weather.temperature} 
-        windSpeed={weather.windSpeed} 
+        windSpeed={weather.windSpeed}
+        windDirection={weather.windDirection}
         error={weather.error} />
     </div>
   );

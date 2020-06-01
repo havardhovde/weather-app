@@ -48,7 +48,7 @@ export default function InfoModal() {
         In some cases, adding a country code to the search can give better results, for example "Bø, NO".
       </p>
       <div className='modal-info-2'>
-        Weather data provided by the  <a target='#' href="https://openweathermap.org/api">OpenWeatherMap API.</a> Icons provided by <a target='#' href="https://hjelp.yr.no/hc/en-us/articles/203786121-Weather-symbols-on-Yr">Yr.no (NRK).</a> Check out the source code on  <a target='#' href="https://github.com/havardhovde/weather-app">Github.</a> 
+        Weather data provided by the  <a target='#' href="https://openweathermap.org/api">OpenWeatherMap API.</a> Icons provided by <a target='#' href="https://hjelp.yr.no/hc/en-us/articles/203786121-Weather-symbols-on-Yr">Yr.no (NRK).</a>
       </div>
       <button id='close-modal-button' type="button" onClick={handleClose}>
         <AiOutlineClose size={24} />
