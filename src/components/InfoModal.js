@@ -45,7 +45,7 @@ export default function InfoModal() {
         Weather app that uses either geolocation or the searched location to display the current weather.
       </p>
       <p className='modal-info-1'>
-        In some cases, adding a country code to the search can give better results, for example "Bø, NO".
+        In some cases the API will be unable to handle certain location names (most notably very short ones). In this case adding a country code to the search usually fixes the issue, for example ("Bø, NO").
       </p>
       <div className='modal-info-2'>
         Weather data provided by the  <a target='#' href="https://openweathermap.org/api">OpenWeatherMap API.</a> Icons provided by <a target='#' href="https://hjelp.yr.no/hc/en-us/articles/203786121-Weather-symbols-on-Yr">Yr.no (NRK).</a>

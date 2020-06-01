@@ -48,7 +48,7 @@ const Weather = ({date, city, country, temperature, description, icon, windSpeed
                 }
                 {windSpeed &&
                 <div className='wind-speed'>
-                     <p>{Math.round(windSpeed) === 0 ? 'Calm winds' : `Wind speed = ${Math.round(windSpeed)} m/s from the ${windDir}`} <FaWind /> </p>
+                     <p>{Math.round(windSpeed) === 0 ? 'Calm winds' : `${Math.round(windSpeed)} m/s winds from the ${windDir}`} <FaWind /> </p>
                 </div>
                 }
             </div>
